@@ -1,0 +1,7 @@
+# github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
+## explicit; go 1.13
+github.com/asaskevich/govalidator
+# github.com/golang/protobuf v1.5.2
+## explicit; go 1.9
+# google.golang.org/protobuf v1.28.1
+## explicit; go 1.11
