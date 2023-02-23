@@ -19,36 +19,3 @@ https://cloud.mail.ru/public/LoDo/SfsPEzoGc
 Важно обрабатывать файлики в хронологическом порядке. В данном случае подэтим имеется в вижу, что после обработки нужно переименовывать файл,префиксировав имя точкой, последовательно и хронологически. Заливать жеможно параллельно.
 Цель задания
 : поработать с моделью конкурентности отличной от Python, получитьнавык решения задач на новом языке.
-
-# requirements.txt
-## create
-pip freeze > requirements.txt
-pip install -r requirements.txt
-## use
-# code style
-## isort
-python -m pip install isort
-### run 
-isort .
-## mypy
-python -m pip install mypy
-### run 
-mypy .
-## flake8
-python -m pip install flake8
-### run
-flake8 --exclude venv,docs --ignore=F401
-## code coverage
-pip install coverage
-### run
-coverage run C:\Users\agrusha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\behave\__main__.py
-в файле .coveragerc нужно указать исходники
-
-# Pytest - Run Tests in Parallel
-## install
-```pip install pytest-xdist```
-
-also:
-https://pypi.org/project/pytest-parallel/
-## run
-```pytest -n 2 test_common.py```
