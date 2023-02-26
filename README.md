@@ -41,21 +41,25 @@ go test
 4) https://github.com/bradfitz/gomemcache/
 слишком старая библиотека
 5) приходится постоянно переключаться между 
+```
 go env -w GO111MODULE=off
+```
 и 
+```
 go env -w GO111MODULE=auto
-PS E:\python scripts\go_daemon> go mod vendor
+```
+go mod vendor
 go: modules disabled by GO111MODULE=off; see 'go help modules'
 ...
-PS E:\python scripts\go_daemon> go mod vendor
-PS E:\python scripts\go_daemon> go build
+ go mod vendor
+ go build
 memc_load.go:8:2: package go_daemon_protobuf is not in GOROOT (C:\Program Files\Go\src\go_daemon_protobuf)
-PS E:\python scripts\go_daemon> go env -w GO111MODULE=off
-
+go env -w GO111MODULE=off
+```
 go run .\memc_load.go -log -dry
 go run .\memc_load.go -dvid="127.0.0.1:444"
 go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
-
+```
 6) сейчас вызов
 go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
 
