@@ -19,3 +19,45 @@ https://cloud.mail.ru/public/LoDo/SfsPEzoGc
 Важно обрабатывать файлики в хронологическом порядке. В данном случае подэтим имеется в вижу, что после обработки нужно переименовывать файл,префиксировав имя точкой, последовательно и хронологически. Заливать жеможно параллельно.
 Цель задания
 : поработать с моделью конкурентности отличной от Python, получитьнавык решения задач на новом языке.
+
+
+Необходимые библиотеки:
+go get gotest.tools/v3
+go get -u github.com/google/go-cmp/cmp
+go get github.com/stretchr/testify/assert
+go get github.com/stretchr/testify
+
+
+https://go.dev/doc/code#Testing
+Запуск тестов:
+go test
+
+----------------------
+1) Я вынес тесты в отдельную функцию
+2) я не нашёл аналога unpacked.ParseFromString(packed)
+и решил сравнивать с ожидаемым результатом
+3) insert_appsinstalled значение по умолчанию не делал
+4) https://github.com/bradfitz/gomemcache/
+слишком старая библиотека
+5) приходится постоянно переключаться между 
+go env -w GO111MODULE=off
+и 
+go env -w GO111MODULE=auto
+PS E:\python scripts\go_daemon> go mod vendor
+go: modules disabled by GO111MODULE=off; see 'go help modules'
+...
+PS E:\python scripts\go_daemon> go mod vendor
+PS E:\python scripts\go_daemon> go build
+memc_load.go:8:2: package go_daemon_protobuf is not in GOROOT (C:\Program Files\Go\src\go_daemon_protobuf)
+PS E:\python scripts\go_daemon> go env -w GO111MODULE=off
+
+go run .\memc_load.go -log -dry
+go run .\memc_load.go -dvid="127.0.0.1:444"
+go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
+
+6) сейчас вызов
+go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
+
+приводит к ошибке
+2023/02/26 15:24:47 Cannot write to memc 127.0.0.1:33013: memcache: connect timeout to 127.0.0.1:33013
+exit status 1
