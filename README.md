@@ -48,6 +48,7 @@ go env -w GO111MODULE=off
 ```
 go env -w GO111MODULE=auto
 ```
+```
 go mod vendor
 go: modules disabled by GO111MODULE=off; see 'go help modules'
 ...
@@ -56,13 +57,17 @@ go: modules disabled by GO111MODULE=off; see 'go help modules'
 memc_load.go:8:2: package go_daemon_protobuf is not in GOROOT (C:\Program Files\Go\src\go_daemon_protobuf)
 go env -w GO111MODULE=off
 ```
+```
 go run .\memc_load.go -log -dry
 go run .\memc_load.go -dvid="127.0.0.1:444"
 go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
 ```
 6) сейчас вызов
+```
 go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
-
+```
 приводит к ошибке
+```
 2023/02/26 15:24:47 Cannot write to memc 127.0.0.1:33013: memcache: connect timeout to 127.0.0.1:33013
 exit status 1
+```
