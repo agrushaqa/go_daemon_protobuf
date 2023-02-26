@@ -28,6 +28,8 @@ https://cloud.mail.ru/public/LoDo/SfsPEzoGc
 - go get github.com/stretchr/testify/assert
 - go get github.com/stretchr/testify
 
+Установка memcached
+https://commaster.net/posts/installing-memcached-windows/
 
 https://go.dev/doc/code#Testing
 Запуск тестов (в папке go_daemon_protobuf):
