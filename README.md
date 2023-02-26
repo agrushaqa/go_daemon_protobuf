@@ -73,3 +73,14 @@ go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.ts
 2023/02/26 15:24:47 Cannot write to memc 127.0.0.1:33013: memcache: connect timeout to 127.0.0.1:33013
 exit status 1
 ```
+Команда генерации кода на основе proto-файла
+- python:
+https://protobuf.dev/reference/python/python-generated/
+```
+protoc --proto_path="E:\python scripts\go_daemon" --python_out="E:\python scripts\go_daemon\task" "E:\python scripts\go_daemon\appsinstalled.proto"
+```
+- go
+https://protobuf.dev/reference/go/go-generated/
+```
+protoc --go_opt=Mappsinstalled.proto=example.com/project/protos/fizz --go_out=. --go_opt=paths=source_relative appsinstalled.proto 
+```
