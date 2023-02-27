@@ -36,9 +36,9 @@ https://go.dev/doc/code#Testing
 go test
 
 # Запуск скрипта:
-go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz" -idfa="127.0.0.1:11211" -gaid="127.0.0.1:11212" -adid="127.0.0.1:11213" -dvid="127.0.0.1:11214"
-
+```
 go run .\memc_load.go --pattern="C:\memcached\sample.tsv.gz" -idfa="127.0.0.1:11211" -gaid="127.0.0.1:11212" -adid="127.0.0.1:11213" -dvid="127.0.0.1:11214"
+```
 ----------------------
 Команда генерации кода на основе proto-файла
 - python:
