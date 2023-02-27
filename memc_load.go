@@ -8,7 +8,6 @@ import (
 	"go_daemon_protobuf"
 	"log"
 	"os"
-	"path"
 	filepath "path/filepath"
 	"reflect"
 	"strconv"
@@ -69,10 +68,12 @@ func main_exec(arg_str arguments) {
 		if err != nil {
 			log.Fatal("can't read gzip file:" + fn)
 		}
-		defer reader.Close()
-		defer uncompressed_data.Close()
+
 		scanner := bufio.NewScanner(uncompressed_data)
 		scanner.Split(bufio.ScanLines)
+		uncompressed_data.Close()
+		reader.Close()
+
 		for scanner.Scan() {
 			line := strings.TrimSpace(scanner.Text())
 			if len(line) == 0 {
@@ -131,9 +132,12 @@ func insert_appsinstalled(memc_addr string, appsinstalled *AppsInstalled, dry_ru
 }
 
 func dot_rename(old_filename string) {
-	dir, file := path.Split(old_filename)
-	err := os.Rename(old_filename, path.Join(dir, "."+file))
+	file := filepath.Base(old_filename)
+	dir := filepath.Dir(old_filename)
+	// time.Sleep(2 * time.Second)
+	err := os.Rename(old_filename, filepath.Join(dir, "."+file))
 	if err != nil {
+		log.Println("xxxyyy")
 		log.Fatal(err)
 	}
 }
