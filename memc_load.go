@@ -137,7 +137,6 @@ func dot_rename(old_filename string) {
 	// time.Sleep(2 * time.Second)
 	err := os.Rename(old_filename, filepath.Join(dir, "."+file))
 	if err != nil {
-		log.Println("xxxyyy")
 		log.Fatal(err)
 	}
 }
@@ -202,9 +201,6 @@ func main() {
 	arg_str.adid = flag.String("adid", "127.0.0.1:33015", "adid")
 	arg_str.dvid = flag.String("dvid", "127.0.0.1:33016", "dvid")
 	flag.Parse()
-	if *arg_str.l {
-		log.Println("xxxxxx")
-	}
 	log.Println(fmt.Sprintln("Memc loader started with options: " + convert_pointer_struct_to_json(arg_str)))
 	main_exec(arg_str)
 }
