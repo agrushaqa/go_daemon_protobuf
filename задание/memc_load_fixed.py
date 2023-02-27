@@ -39,7 +39,7 @@ def insert_appsinstalled(memc_addr, appsinstalled, dry_run=False):
         else:
             memc = memcache.Client([memc_addr])
             memc.set(key, packed)
-    except Exception, e:
+    except Exception as e:
         logging.exception("Cannot write to memc %s: %s" % (memc_addr, e))
         return False
     return True
@@ -122,7 +122,7 @@ def prototest():
         unpacked.ParseFromString(packed)
         assert ua == unpacked
 
-
+# python memc_load.py --pattern=E:\python scripts\go_daemon\data\appsinstalled\*.tsv.gz --dry
 if __name__ == '__main__':
     op = OptionParser()
     op.add_option("-t", "--test", action="store_true", default=False)
@@ -143,6 +143,6 @@ if __name__ == '__main__':
     logging.info("Memc loader started with options: %s" % opts)
     try:
         main(opts)
-    except Exception, e:
+    except Exception as e:
         logging.exception("Unexpected error: %s" % e)
         sys.exit(1)
