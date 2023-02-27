@@ -100,14 +100,14 @@ func main_exec(arg_str arguments) {
 				dot_rename(fn)
 				continue
 			}
-			err_rate := float32(errors) / float32(processed)
-			if err_rate < NORMAL_ERR_RATE {
-				log.Println(fmt.Sprintf("Acceptable error rate (%v). Successfull load", err_rate))
-			} else {
-				log.Println(fmt.Sprintf("High error rate (%v > %v). Failed load", err_rate, NORMAL_ERR_RATE))
-			}
-			dot_rename(fn)
 		}
+		err_rate := float32(errors) / float32(processed)
+		if err_rate < NORMAL_ERR_RATE {
+			log.Println(fmt.Sprintf("Acceptable error rate (%v). Successfull load", err_rate))
+		} else {
+			log.Println(fmt.Sprintf("High error rate (%v > %v). Failed load", err_rate, NORMAL_ERR_RATE))
+		}
+		dot_rename(fn)
 	}
 }
 
@@ -122,6 +122,7 @@ func insert_appsinstalled(memc_addr string, appsinstalled *AppsInstalled, dry_ru
 		log.Println(fmt.Sprintf("%v - %v -> %v", memc_addr, key, strings.ReplaceAll(packed, "\n", " ")))
 	} else {
 		memc := memcache.New(memc_addr)
+		// log.Println("Save key in memcache: " + key)
 		err := memc.Set(&memcache.Item{Key: key, Value: []byte(packed)})
 		if err != nil {
 			log.Fatalln(fmt.Sprintf("Cannot write to memc %v: %v", memc_addr, err.Error()))

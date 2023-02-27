@@ -28,17 +28,23 @@ https://cloud.mail.ru/public/LoDo/SfsPEzoGc
 - go get github.com/stretchr/testify/assert
 - go get github.com/stretchr/testify
 
-Установка memcached
+# Установка и запуск memcached
 https://commaster.net/posts/installing-memcached-windows/
 
 https://go.dev/doc/code#Testing
 Запуск тестов (в папке go_daemon_protobuf):
 go test
 
-Запуск скрипта:
-go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz" -idfa="127.0.0.1:11211" -gaid="127.0.0.1:11212" -adid="127.0.0.1:11213" -dvid="127.0.0.1:11214"
+# Запуск скрипта:
+```
+go run .\memc_load.go --pattern="C:\memcached\sample.tsv.gz" --idfa="127.0.0.1:11211" --gaid="127.0.0.1:11211" --adid="127.0.0.1:11211" --dvid="127.0.0.1:11211"
+```
 
-go run .\memc_load.go --pattern="C:\memcached\sample.tsv.gz" -idfa="127.0.0.1:11211" -gaid="127.0.0.1:11212" -adid="127.0.0.1:11213" -dvid="127.0.0.1:11214"
+# Убедится в том, что данных сохранились:
+telnet 127.0.0.1 11211
+get idfa:1rfw452y52g2gq4g
+где idfa:1rfw452y52g2gq4g
+- это ключ (его можно взять в файле или в логах)
 ----------------------
 Команда генерации кода на основе proto-файла
 - python:
@@ -82,13 +88,5 @@ go run .\memc_load.go -log -dry
 go run .\memc_load.go -dvid="127.0.0.1:444"
 go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
 ```
-6) сейчас вызов
-```
-go run .\memc_load.go --pattern="E:\python scripts\go_daemon\test_data\sample.tsv.gz"
-```
-приводит к ошибке
-```
-2023/02/26 15:24:47 Cannot write to memc 127.0.0.1:33013: memcache: connect timeout to 127.0.0.1:33013
-exit status 1
-```
+
 
