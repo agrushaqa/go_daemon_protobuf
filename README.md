@@ -42,8 +42,10 @@ go run .\memc_load.go --pattern="C:\memcached\sample.tsv.gz" --idfa="127.0.0.1:1
 ```
 
 # Убедится в том, что данных сохранились:
+```
 telnet 127.0.0.1 11211
 get idfa:1rfw452y52g2gq4g
+```
 где idfa:1rfw452y52g2gq4g
 - это ключ (его можно взять в файле или в логах)
 ----------------------
