@@ -5,8 +5,9 @@
 : нужно переписать Python версию memc_load.py на Go. Программа по-прежнему парсит и заливает в мемкеш поминутную выгрузку логов трекера установленных приложений. Ключом является тип и идентификатор устройствачерез двоеточие, значением являет protobuf сообщение(
 https://github.com/golang/protobuf
 ).
-$ ls -lh /Users/s.stupnikov/Coding/otus/*.tsv.gz
+
 ```
+$ ls -lh /Users/s.stupnikov/Coding/otus/*.tsv.gz
   -rw-r--r-- 1 s.stupnikov staff 506M 29 сен 12:09 /Users/s.stupnikov/Codin
   -rw-r--r-- 1 s.stupnikov staff 506M 29 сен 12:17 /Users/s.stupnikov/Codin
   -rw-r--r-- 1 s.stupnikov staff 506M 29 сен 12:25 /Users/s.stupnikov/Codin$ 
